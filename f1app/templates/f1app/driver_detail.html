@@ -1,0 +1,14 @@
+{% extends "f1app/base.html" %}
+
+{% block body_block %}
+    <h1>{{ driver.forename }} {{ driver.surname }}</h1>
+    <p>Forename: {{ driver.forename }}</p>
+    <p>Nationality: {{ driver.nationality }}</p>
+    <p>Total Wins: {{ driver.race_wins }}</p>
+    <p>Championships won: {{ driver.championships }}</p>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'driver_edit' pk=driver.pk %}">Edit</a>
+        <a href="{% url 'driver_delete' pk=driver.pk %}">Remove</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "f1app/base.html" %}
+
+{% block body_block %}
+<h1>{{ circuit.circuit_name }}</h1>
+<p>City: {{ circuit.circuit_city }}</p>
+<p>Country: {{ circuit.circuit_country }}</p>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'circuit_edit' pk=circuit.pk %}">Edit</a>
+    <a href="{% url 'circuit_delete' pk=circuit.pk %}">Remove</a>
+{% endif %}
+{% endblock %}
