@@ -21,6 +21,8 @@
               <a class="nav-link active" aria-current="page" href="{% url 'driver_list' %}">Drivers</a>
               <a class="nav-link" href="{% url 'constructor_list' %}">Constructors</a>
               <a class="nav-link" href="{% url 'circuit_list' %}">Circuits</a>
+              <a class="nav-link" href="{% url 'races_list' %}">Races</a>
+              <a class="nav-link" href="{% url 'analysis_list' %}">Data Analysis</a>
             </div>
           </div>
         </div>
@@ -36,6 +38,10 @@
                 <span> - </span>
                 <li>
                     <a href="{% url 'circuit_new' %}">New Circuit</a>
+                </li>
+                <span> - </span>
+                <li>
+                    <a href="{% url 'races_new' %}">New Race</a>
                 </li>
                 <span> - </span>
                 <li>

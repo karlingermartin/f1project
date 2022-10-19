@@ -1,9 +1,9 @@
 {% extends "f1app/base.html" %}
-
+{% load static %}
 {% block body_block %}
     <h1>{{ driver.forename }} {{ driver.surname }}</h1>
     <p>Forename: {{ driver.forename }}</p>
-    <p>Nationality: {{ driver.nationality }}</p>
+    <p>Nationality: {{ driver.driver_nationality }}</p>
     <p>Total Wins: {{ driver.race_wins }}</p>
     <p>Championships won: {{ driver.championships }}</p>
 

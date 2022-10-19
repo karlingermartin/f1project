@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "f1app",
-    #"computedfields",
+    "computed_property",
+    'django_matplotlib',
 ]
 
 MIDDLEWARE = [

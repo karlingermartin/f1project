@@ -1,0 +1,30 @@
+{% extends "f1app/base.html" %}
+
+{% block body_block %}
+
+    <h1>{{ name }} {{ year }}</h1>
+    <table style="text-align:center; border-width: 10px;">
+        <tr>
+          <th>Driver</th>
+          <th>Constructor</th>
+          <th>Grid position</th>
+          <th>Finish Position</th>
+          <th>Laps completed</th>
+          <th>Points</th>
+          <th>Championship standings</th>
+        </tr>
+        {% for result in results %}
+            <tr>
+                <th>{{ result.driver }}</th>
+                <th>{{ result.constructor }}</th>
+                <th>{{ result.grid }}</th>
+                <th>{{ result.position_order }}</th>
+                <th>{{ result.laps }}</th>
+                <th>{{ result.points }}</th>
+                <th>{{ result.rank }}</th>
+            </tr> 
+        {% endfor %}
+    </table>
+
+    
+{% endblock %}
