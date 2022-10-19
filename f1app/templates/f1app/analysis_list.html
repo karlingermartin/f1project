@@ -1,10 +1,6 @@
 {% extends "f1app/base.html" %}
 
 {% block body_block %}
-    <h2>hello world</h2>
-    {{ analysis.figure }}
-    <img src='data:image/png;base64,{{ chart }}'>
-    {% for analysis in analysis_list %}
-        {{ analysis.figure }}
-    {% endfor %}
+    <h2>Top 10 drivers by GP wins</h2>
+    <img src='data:image/png;base64,{{ chart }}'> 
 {% endblock %}
