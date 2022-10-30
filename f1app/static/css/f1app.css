@@ -1,4 +1,105 @@
+@font-face {
+    font-family: "Racing";
+    src: url("/static/fonts/RacingSansOne-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .centerstage{
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 3em;
+}
+
+.data {
+    width: 380px;
+    font-size: 24px;
+}
+
+.data a {
+    text-decoration: none;
+    color: black;
+    transition: 0.4s;
+    padding: 0.2em 1em;
+    border-radius: 5px;
+}
+
+.data a:hover {
+    background-color: whitesmoke;
+}
+
+.detail {
+    width: 65%;
+    margin: 5em auto;
+}
+
+h1{
+    margin-bottom: 1em;
+}
+
+.racediv {
+    overflow-x: auto;
+    margin: auto;
+    width: 75%;
+}
+
+.racetable {
+    margin: auto;
+    width: 100%;
+}
+
+.racetable th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+.index{
+    margin: 5em auto;
+    width: 75%;
+}
+
+.login{
+    margin: 5em auto;
+    width: 75%;
+}
+
+.uniquebutton {
+    padding: 0.1em 0.5em 0.2em;
+    border-radius: 7px;
+    border-width: 1px;
+}
+
+.adminnav li {
+    margin-right: 10px;
+}
+
+.adminnav a {
+    text-decoration: none;
+    color: grey
+}
+
+.welcome{
+    margin-left: 0.5em;
+}
+
+.form{
+    width: 65%;
+    margin: 5em auto;
+}
+
+.analysis{
+    width: 75%;
+    margin: 5em auto;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 2px;
+    background-color: #f8f9fa;
+    width: 100%;
 }

@@ -1,12 +1,14 @@
 {% extends "f1app/base.html" %}
 
 {% block body_block %}
-<h1>{{ constructor.constructor_name }}</h1>
-<p>Nationality: {{ constructor.constructor_nationality }}</p>
-<p>Total Wins: {{ constructor.constructor_race_wins }}</p>
+<div class="detail">
+    <h1>{{ constructor.constructor_name }}</h1>
+    <p>Nationality: {{ constructor.constructor_nationality }}</p>
+    <p>Total Wins: {{ constructor.constructor_race_wins }}</p>
 
-{% if user.is_authenticated %}
-    <a href="{% url 'constructor_edit' pk=constructor.pk %}">Edit</a>
-    <a href="{% url 'constructor_delete' pk=constructor.pk %}">Remove</a>
-{% endif %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'constructor_edit' pk=constructor.pk %}">Edit</a>
+        <a href="{% url 'constructor_delete' pk=constructor.pk %}">Remove</a>
+    {% endif %}
+</div>  
 {% endblock %}

@@ -12,43 +12,74 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'about' %}">About</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="{% url 'driver_list' %}">Drivers</a>
-              <a class="nav-link" href="{% url 'constructor_list' %}">Constructors</a>
-              <a class="nav-link" href="{% url 'circuit_list' %}">Circuits</a>
-              <a class="nav-link" href="{% url 'races_list' %}">Races</a>
-              <a class="nav-link" href="{% url 'analysis_list' %}">Data Analysis</a>
+            <a class="navbar-brand about" href="{% url 'index' %}">About</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="{% url 'driver_list' %}">Drivers</a>
+                    <a class="nav-link" href="{% url 'constructor_list' %}">Constructors</a>
+                    <a class="nav-link" href="{% url 'circuit_list' %}">Circuits</a>
+                    <a class="nav-link" href="{% url 'races_list' %}">Races</a>
+                    <a class="nav-link" href="{% url 'analysis_list' %}">Data Analysis</a>
+                </div>
             </div>
-          </div>
+            <!--
+            <ul class="nav justify-content-end adminnav">
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'driver_new' %}">New Driver</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'constructor_new' %}">New Constructor</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'circuit_new' %}">New Circuit</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'races_new' %}">New Race</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    <li class="welcome">
+                        <p>Welcome: {{ user.username }}</p>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
+            </ul>-->
         </div>
-        <ul class="nav justify-content-end VALAMI">
+    </nav>
+
+    <div class="content">
+        {% block body_block %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <ul class="nav justify-content-end adminnav">
             {% if user.is_authenticated %}
-                <li style = "margin-right: 10px;">
+                <li>
                     <a href="{% url 'driver_new' %}">New Driver</a>
                 </li>
-                <span>  </span>
                 <li>
                     <a href="{% url 'constructor_new' %}">New Constructor</a>
                 </li>
-                <span> - </span>
                 <li>
                     <a href="{% url 'circuit_new' %}">New Circuit</a>
                 </li>
-                <span> - </span>
                 <li>
                     <a href="{% url 'races_new' %}">New Race</a>
                 </li>
-                <span> - </span>
                 <li>
                     <a href="{% url 'logout' %}">Logout</a>
                 </li>
-                <li>
-                    <a>Welcome: {{ user.username }}</a>
+                <li class="welcome">
+                    <p>Welcome: {{ user.username }}</p>
                 </li>
             {% else %}
                 <li class="nav-item">
@@ -56,12 +87,7 @@
                 </li>
             {% endif %}
         </ul>
-    </nav>
-
-    <div class="content container">
-        {% block body_block %}
-        {% endblock %}
-    </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

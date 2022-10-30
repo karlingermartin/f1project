@@ -3,8 +3,8 @@
 {% block body_block %}
     <div class="centerstage">
         {% for driver in driver_list %}
-            <div class="driver">
-                <h2><a href="{% url 'driver_detail' pk=driver.pk %}">{{ driver.forename }} {{ driver.surname }}</a></h2>
+            <div class="driver data">
+                <p><a href="{% url 'driver_detail' pk=driver.pk %}">{{ driver.forename }} {{ driver.surname }}</a></p>
             </div>
         {% endfor %}
     </div>

@@ -2,7 +2,7 @@ from django.urls import path
 from f1app import views
 
 urlpatterns=[
-    path("", views.AboutView.as_view(), name="about"),
+    path("", views.AboutView.as_view(), name="index"),
     #drivers
     path("drivers/", views.DriverListView.as_view(), name="driver_list"),
     path("drivers/<int:pk>/", views.DriverDetailView.as_view(), name="driver_detail"),
@@ -28,11 +28,11 @@ urlpatterns=[
     path("races/<int:pk>/edit/", views.RacesUpdateView.as_view(), name="races_edit"),
     path("races/<int:pk>/delete/", views.RacesDeleteView.as_view(), name="races_delete"),
     #results
-    path("results/", views.ResultListView.as_view(), name="result_list"),
-    path("results/<int:pk>/", views.ResultDetailView.as_view(), name="result_detail"),
-    path("results/new/", views.ResultCreateView.as_view(), name="result_new"),
-    path("results/<int:pk>/edit/", views.ResultUpdateView.as_view(), name="result_edit"),
-    path("results/<int:pk>/delete/", views.ResultDeleteView.as_view(), name="result_delete"),
+    #path("results/", views.ResultListView.as_view(), name="result_list"),
+    #path("results/<int:pk>/", views.ResultDetailView.as_view(), name="result_detail"),
+    #path("results/new/", views.ResultCreateView.as_view(), name="result_new"),
+    #path("results/<int:pk>/edit/", views.ResultUpdateView.as_view(), name="result_edit"),
+    #path("results/<int:pk>/delete/", views.ResultDeleteView.as_view(), name="result_delete"),
     #analysis
     path("analysis/", views.AnalysisListView.as_view(), name="analysis_list"),
 ]

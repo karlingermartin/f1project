@@ -15,10 +15,12 @@ import numpy as np
 import pandas as pd
 import seaborn as sb
 
+from f1app.analysis import Charts
+
 # Create your views here.
 
 class AboutView(TemplateView):
-    template_name = "about.html"
+    template_name = "index.html"
 
 
 #DriverViews
@@ -27,7 +29,7 @@ class DriverListView(ListView):
     model = Driver
 
     def get_queryset(self):
-        return Driver.objects.all()#.order_by("-race_wins")
+        return Driver.objects.all()
 
 class DriverDetailView(DetailView):
     model = Driver
@@ -128,19 +130,19 @@ class RacesDetailView(DetailView):
 
 class RacesCreateView(LoginRequiredMixin, CreateView):
     login_url: "registration/login.html"
-    redirect_field_name: "f1app/race_detail.html"
+    redirect_field_name: "f1app/races_detail.html"
     form_class = RacesForm
     model = Races
 
 class RacesUpdateView(LoginRequiredMixin, UpdateView):
     login_url: "registration/login.html"
-    redirect_field_name: "f1app/race_detail.html"
+    redirect_field_name: "f1app/races_detail.html"
     form_class = RacesForm
     model = Races
 
 class RacesDeleteView(LoginRequiredMixin, DeleteView):
     model = Races
-    success_url = reverse_lazy("race_list")
+    success_url = reverse_lazy("races_list")
 
 
 #Results
@@ -174,14 +176,37 @@ class ResultDeleteView(LoginRequiredMixin, DeleteView):
 class AnalysisListView(ListView):
     model = Analysis
 
+    #c=Charts()
+    #c.first_ten()
+    """
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        fig, ax = plt.subplots()
+        ax.plot([1, 3, 4], [3, 2, 5])
+        #return fig
 
-        #load the data and assign columns
-        results = pd.read_csv(r"f1app\data\results.csv",sep = ',',encoding='utf-8')
-        races = pd.read_csv(r"f1app\data\races.csv",sep = ';',encoding='utf-8')
-        drivers = pd.read_csv(r"f1app\data\drivers.csv",sep = ',',encoding='utf-8')
-        constructors = pd.read_csv(r"f1app\data\constructors.csv",sep = ',',encoding='utf-8')
+        flike = io.BytesIO()
+        fig.savefig(flike)
+        b64 = base64.b64encode(flike.getvalue()).decode()
+        #print(b64)
+        context = {}
+        context['chart'] = b64
+        return context
+    """
+    def get_context_data(self, **kwargs):
+        
+        circuits = pd.read_csv(r"E:\f1project\f1app\data\circuits.csv",sep = ';', encoding='latin-1')
+        constructor_results = pd.read_csv(r"E:\f1project\f1app\data\constructor_results.csv",sep = ',',encoding='utf-8')
+        constructor_standings = pd.read_csv(r"E:\f1project\f1app\data\constructor_standings.csv",sep = ',',encoding='utf-8')
+        constructors = pd.read_csv(r"E:\f1project\f1app\data\constructors.csv",sep = ',',encoding='utf-8')
+        driver_standings = pd.read_csv(r"E:\f1project\f1app\data\driver_standings.csv",sep = ',',encoding='utf-8')
+        drivers = pd.read_csv(r"E:\f1project\f1app\data\drivers.csv",sep = ';',encoding='utf-8')
+        lap_times = pd.read_csv(r"E:\f1project\f1app\data\lap_times.csv",sep = ',',encoding='utf-8')
+        pit_stops = pd.read_csv(r"E:\f1project\f1app\data\pit_stops.csv",sep = ',',encoding='utf-8')
+        qualifying = pd.read_csv(r"E:\f1project\f1app\data\qualifying.csv",sep = ',',encoding='utf-8')
+        races = pd.read_csv(r"E:\f1project\f1app\data\races.csv",sep = ';',encoding='utf-8')
+        results = pd.read_csv(r"E:\f1project\f1app\data\results.csv",sep = ';', encoding='latin-1')
+        seasons = pd.read_csv(r"E:\f1project\f1app\data\seasons.csv",sep = ',',encoding='utf-8')
+        status = pd.read_csv(r"E:\f1project\f1app\data\status.csv",sep = ',',encoding='utf-8')
 
         #merge datasets
         df = pd.merge(results, races[["raceId", "year", "name", "round"]], on="raceId", how="left")
@@ -220,18 +245,19 @@ class AnalysisListView(ListView):
 
         driver_winner = df.loc[df["positionOrder"]==1].groupby("driver")["positionOrder"].count().sort_values(ascending=False).to_frame().reset_index()
 
-        sb.barplot(data=driver_winner, y ="driver", x="positionOrder", color="green", alpha=0.8)
+        sb.barplot(data=driver_winner, y ="positionOrder", x="driver", color="green", alpha=0.8)
 
         top10Drivers = driver_winner.head(10)
-        sb.barplot(data = top10Drivers, y = "driver", x="positionOrder", color="blue", alpha = 0.8, linewidth=.8, edgecolor="black")
+    
+        fig = sb.barplot(data = top10Drivers, y = "positionOrder", x="driver", color="#636efa", alpha = 0.8, linewidth=.8, edgecolor="black").figure
         plt.title("Top 10 Gp Winners")
-        plt.ylabel("Drivers")
-        plt.xlabel("Number of Wins")
-        fig = plt.figure()
+        plt.xlabel("Drivers")
+        plt.ylabel("Number of Wins")
 
         flike = io.BytesIO()
         fig.savefig(flike)
         b64 = base64.b64encode(flike.getvalue()).decode()
+        context = {}
         context['chart'] = b64
 
         return context

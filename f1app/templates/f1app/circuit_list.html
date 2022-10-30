@@ -3,8 +3,8 @@
 {% block body_block %}
 <div class="centerstage">
     {% for circuit in circuit_list %}
-        <div class="circuit">
-            <h2><a href="{% url 'circuit_detail' pk=circuit.pk %}">{{ circuit.circuit_name }}</a></h2>
+        <div class="circuit data">
+            <p><a href="{% url 'circuit_detail' pk=circuit.pk %}">{{ circuit.circuit_name }}</a></p>
         </div>
     {% endfor %}
 </div>

@@ -48,9 +48,28 @@ class Driver(models.Model):
 
     @property
     def championships(self):
-        qry = "SELECT COUNT(f1app_result.driver_id) FROM f1app_result WHERE f1app_result.race_id IN (SELECT f1app_races.id FROM f1app_races WHERE (round, race_year) IN (SELECT max(round), race_year FROM f1app_races GROUP BY race_year)) AND f1app_result.rank = 1 AND f1app_result.driver_id = %s;"
-        champ = Result.objects.raw(qry, [Driver.id])
-        return champ
+        qry = """
+                select count(d) as c, 1 as id from 
+	            (select max(s), y, d
+	            from
+		        (select  
+			        f1app_result.driver_id as d, 
+			        sum(f1app_result.points) as s, 
+			        f1app_races.race_year as y
+		        from f1app_result join f1app_races on f1app_result.race_id = f1app_races.id
+		        group by f1app_result.driver_id, f1app_races.race_year
+		        ) as t
+		        group by y)
+		        where d = %s;
+            """
+        #it = iter(Result.objects.raw(qry, [Driver.id]))
+        print(f'Driver ID = {self.id}')
+        #champ = Result.objects.raw(qry, [self.id])
+        #return champ
+        for champ in Result.objects.raw(qry, [self.id]):
+            #champ = dir(Result.objects.raw(qry, [self.id]))
+            print(champ.c)
+        return champ.c
         #wc = Result.objects.raw("SELECT COUNT(f1app_result.driver_id) FROM f1app_result WHERE f1app_result.race_id IN (SELECT f1app_races.id FROM f1app_races WHERE (round, race_year) IN (SELECT max(round), race_year FROM f1app_races GROUP BY race_year)) AND f1app_result.rank = 1 AND f1app_result.driver_id = 3")
         #return wc
  

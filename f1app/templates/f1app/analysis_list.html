@@ -1,6 +1,11 @@
 {% extends "f1app/base.html" %}
+{% load static %}
 
 {% block body_block %}
+<div class="analysis">
     <h2>Top 10 drivers by GP wins</h2>
-    <img src='data:image/png;base64,{{ chart }}'> 
+    <img src='data:image/png;base64,{{ chart }}' alt="Top 10 GP Winners"> 
+    <h2>Best Points per Race Ratio drivers</h2>
+    <img src="{% static 'pics/points_per_race.png' %}" alt="Best Points per Race Ratio"  width="1000" height="700">
+</div>
 {% endblock %}

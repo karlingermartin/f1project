@@ -1,10 +1,12 @@
 {% extends "f1app/base.html" %}
 
 {% block body_block %}
-<h1>New Circuit</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="save">Save</button>
-</form>
+<div class="form">
+    <h1>Circuit Editor</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save uniquebutton">Save</button>
+    </form>
+</div>
 {% endblock %}
