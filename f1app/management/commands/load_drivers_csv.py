@@ -15,3 +15,5 @@ class Command(BaseCommand):
                     "driver_nationality": row["nationality"]
                 }
                 Driver.objects.create(**driver)#driver_id = row[0], forename=row[1], surname=row[2], driver_nationality=row[3])
+
+

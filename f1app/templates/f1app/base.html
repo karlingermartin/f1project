@@ -25,33 +25,6 @@
                     <a class="nav-link" href="{% url 'analysis_list' %}">Data Analysis</a>
                 </div>
             </div>
-            <!--
-            <ul class="nav justify-content-end adminnav">
-                {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'driver_new' %}">New Driver</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'constructor_new' %}">New Constructor</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'circuit_new' %}">New Circuit</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'races_new' %}">New Race</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'logout' %}">Logout</a>
-                    </li>
-                    <li class="welcome">
-                        <p>Welcome: {{ user.username }}</p>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                {% endif %}
-            </ul>-->
         </div>
     </nav>
 

@@ -62,17 +62,11 @@ class Driver(models.Model):
 		        group by y)
 		        where d = %s;
             """
-        #it = iter(Result.objects.raw(qry, [Driver.id]))
+    
         print(f'Driver ID = {self.id}')
-        #champ = Result.objects.raw(qry, [self.id])
-        #return champ
         for champ in Result.objects.raw(qry, [self.id]):
-            #champ = dir(Result.objects.raw(qry, [self.id]))
             print(champ.c)
         return champ.c
-        #wc = Result.objects.raw("SELECT COUNT(f1app_result.driver_id) FROM f1app_result WHERE f1app_result.race_id IN (SELECT f1app_races.id FROM f1app_races WHERE (round, race_year) IN (SELECT max(round), race_year FROM f1app_races GROUP BY race_year)) AND f1app_result.rank = 1 AND f1app_result.driver_id = 3")
-        #return wc
- 
 
     def __str__(self):
         return self.surname
