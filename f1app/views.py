@@ -6,15 +6,6 @@ from f1app.forms import DriverForm, ConstructorForm, CircuitForm, RacesForm, Res
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
-
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import io, base64
-import numpy as np
-import pandas as pd
-import seaborn as sb
-
 from f1app.analysis import ChartGenerator
 
 # Create your views here.
@@ -174,23 +165,6 @@ class ResultDeleteView(LoginRequiredMixin, DeleteView):
 #Analysis
 class AnalysisListView(ListView):
     model = Analysis
-
-    #c=Charts()
-    #c.first_ten()
-    """
-    def get_context_data(self, **kwargs):
-        fig, ax = plt.subplots()
-        ax.plot([1, 3, 4], [3, 2, 5])
-        #return fig
-
-        flike = io.BytesIO()
-        fig.savefig(flike)
-        b64 = base64.b64encode(flike.getvalue()).decode()
-        #print(b64)
-        context = {}
-        context['chart'] = b64
-        return context
-    """
 
     def get_context_data(self, **kwargs):
         c=ChartGenerator()
