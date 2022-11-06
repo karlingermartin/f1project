@@ -2,6 +2,7 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from f1app.views import AboutView, DriverListView, DriverDetailView, ConstructorListView, ConstructorDetailView, CircuitListView, CircuitDetailView
 
+
 class TestUrls(SimpleTestCase):
     def test_about_url_is_resolved(self):
         url = reverse("about")
@@ -30,7 +31,3 @@ class TestUrls(SimpleTestCase):
     def test_circuit_detail_url_is_resolved(self):
         url = reverse("circuit_detail", args=['1'])
         self.assertEquals(resolve(url).func.view_class, CircuitDetailView)
-
-    
-
-    

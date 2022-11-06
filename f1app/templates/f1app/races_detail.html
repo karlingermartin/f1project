@@ -2,29 +2,28 @@
 
 {% block body_block %}
 
-    
-    <div class="racediv">
-        <h1>{{ name }} {{ year }}</h1>
-        <table class="racetable">
-            <tr>
+<div class="racediv">
+    <h1>{{ name }} {{ year }}</h1>
+    <table class="racetable">
+        <tr>
             <th>Driver</th>
             <th>Constructor</th>
             <th>Grid position</th>
             <th>Finish Position</th>
             <th>Laps completed</th>
             <th>Points</th>
-            </tr>
-            {% for result in results %}
-                <tr>
-                    <td>{{ result.driver }}</td>
-                    <td>{{ result.constructor }}</td>
-                    <td>{{ result.grid }}</td>
-                    <td>{{ result.position_order }}</td>
-                    <td>{{ result.laps }}</td>
-                    <td>{{ result.points }}</td>
-                </tr> 
-            {% endfor %}
-        </table>
-    </div>
-    
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.driver }}</td>
+            <td>{{ result.constructor }}</td>
+            <td>{{ result.grid }}</td>
+            <td>{{ result.position_order }}</td>
+            <td>{{ result.laps }}</td>
+            <td>{{ result.points }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
 {% endblock %}

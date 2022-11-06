@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sb
 matplotlib.use('Agg')
 
+
 class ChartGenerator():
 
     @staticmethod
@@ -41,9 +42,6 @@ class ChartGenerator():
         df = df[df["year"] != 2021]
         df = df[df["year"] != 2022]
 
-        df_speed = df[df["year"]>=2004]
-        df_group_speed = df_speed.groupby(["gpName", "year"])["fastestLapSpeed"].mean().to_frame().reset_index()
-
         # sort values
         df = df.sort_values(by=["year", "round", "positionOrder"], ascending=[
                             False, True, True])
@@ -56,14 +54,14 @@ class ChartGenerator():
         gp_winners = df.loc[df["positionOrder"] == 1].groupby("driver")[
             "positionOrder"].count().sort_values(ascending=False).to_frame().reset_index()
 
-        sb.barplot(data=gp_winners, x="driver", 
-                y="positionOrder", color="green", alpha=0.8)
+        sb.barplot(data=gp_winners, x="driver",
+                   y="positionOrder", color="green", alpha=0.8)
 
         top_ten = gp_winners.head(10)
 
         fig = sb.barplot(data=top_ten, x="driver", y="positionOrder",
                          color="#636efa", alpha=0.8, linewidth=.8, edgecolor="black").figure
-                       
+
         plt.title("Top 10 Gp Winners")
         plt.xlabel("Drivers")
         plt.ylabel("Number of Wins")
@@ -73,4 +71,3 @@ class ChartGenerator():
         b64 = base64.b64encode(flike.getvalue()).decode()
 
         return b64
-

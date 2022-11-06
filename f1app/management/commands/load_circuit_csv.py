@@ -1,7 +1,9 @@
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from f1app.models import Circuit
-import os, csv
+import os
+import csv
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -15,4 +17,4 @@ class Command(BaseCommand):
                     "circuit_country": row["country"],
                 }
                 print(circuit)
-                Circuit.objects.create(**circuit)#circuit_id = row[0], circuit_name=row[1], circuit_city=row[2], circuit_country=row[3])
+                Circuit.objects.create(**circuit)

@@ -8,7 +8,7 @@
     padding: 0;
 }
 
-.centerstage{
+.centerstage {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -38,7 +38,7 @@
     margin: 5em auto;
 }
 
-h1{
+h1 {
     margin-bottom: 1em;
 }
 
@@ -53,16 +53,17 @@ h1{
     width: 100%;
 }
 
-.racetable th, td {
+.racetable th,
+td {
     border-bottom: 1px solid #ddd;
 }
 
-.index{
+.index {
     margin: 5em auto;
     width: 75%;
 }
 
-.login{
+.login {
     margin: 5em auto;
     width: 75%;
 }
@@ -82,16 +83,16 @@ h1{
     color: grey
 }
 
-.welcome{
+.welcome {
     margin-left: 0.5em;
 }
 
-.form{
+.form {
     width: 65%;
     margin: 5em auto;
 }
 
-.analysis{
+.analysis {
     width: 75%;
     margin: 5em auto;
 }

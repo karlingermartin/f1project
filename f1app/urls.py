@@ -27,12 +27,6 @@ urlpatterns=[
     path("races/new/", views.RacesCreateView.as_view(), name="races_new"),
     path("races/<int:pk>/edit/", views.RacesUpdateView.as_view(), name="races_edit"),
     path("races/<int:pk>/delete/", views.RacesDeleteView.as_view(), name="races_delete"),
-    #results
-    #path("results/", views.ResultListView.as_view(), name="result_list"),
-    #path("results/<int:pk>/", views.ResultDetailView.as_view(), name="result_detail"),
-    #path("results/new/", views.ResultCreateView.as_view(), name="result_new"),
-    #path("results/<int:pk>/edit/", views.ResultUpdateView.as_view(), name="result_edit"),
-    #path("results/<int:pk>/delete/", views.ResultDeleteView.as_view(), name="result_delete"),
     #analysis
     path("analysis/", views.AnalysisListView.as_view(), name="analysis_list"),
 ]

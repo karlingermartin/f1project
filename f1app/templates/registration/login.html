@@ -5,13 +5,13 @@
     <h2>Please log in</h2>
     <h4>Must be a superuser!</h4>
     {% if form.errors %}
-        <p>Your username and password did not match, try again!</p>
+    <p>Your username and password did not match, try again!</p>
     {% endif %}
     <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-            <input type="submit" value="Login" class="loginbutton">
-            <input type="hidden" name="next" value="{{next}}">
+        <input type="submit" value="Login" class="loginbutton">
+        <input type="hidden" name="next" value="{{next}}">
     </form>
 </div>
 {% endblock %}

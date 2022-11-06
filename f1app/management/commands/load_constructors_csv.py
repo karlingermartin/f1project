@@ -2,7 +2,9 @@ from copyreg import constructor
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from f1app.models import Constructor
-import os, csv
+import os
+import csv
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -15,4 +17,4 @@ class Command(BaseCommand):
                     "constructor_nationality": row["nationality"],
                 }
                 print(constructor)
-                Constructor.objects.create(**constructor)#constructor_id = row[0], constructor_name=row[1], constructor_nationality=row[2])
+                Constructor.objects.create(**constructor)

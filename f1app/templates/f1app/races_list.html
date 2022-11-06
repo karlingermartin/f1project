@@ -1,11 +1,11 @@
 {% extends "f1app/base.html" %}
 
 {% block body_block %}
-    <div class="centerstage">
-        {% for races in races_list %}
-            <div class="race data">
-                <p><a href="{% url 'races_detail' pk=races.pk %}">{{ races.race_year }} {{ races.race_name }}</a></p>
-            </div>
-        {% endfor %}
+<div class="centerstage">
+    {% for races in races_list %}
+    <div class="race data">
+        <p><a href="{% url 'races_detail' pk=races.pk %}">{{ races.race_year }} {{ races.race_name }}</a></p>
     </div>
+    {% endfor %}
+</div>
 {% endblock %}

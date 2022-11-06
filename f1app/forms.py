@@ -2,6 +2,7 @@ from django import forms
 from f1app.models import Driver, Constructor, Circuit, Races, Result
 from django.utils.translation import gettext_lazy as _
 
+
 class DriverForm(forms.ModelForm):
 
     class Meta():
@@ -9,8 +10,8 @@ class DriverForm(forms.ModelForm):
         fields = ("forename", "surname", "driver_nationality")
         labels = {
             "driver_nationality": _("Nationality"),
-            "race_wins" : _("Race Wins"),
-            "championships" : _("Championships"),
+            "race_wins": _("Race Wins"),
+            "championships": _("Championships"),
         }
 
 
@@ -47,12 +48,13 @@ class RacesForm(forms.ModelForm):
             "circuit": _("Circuit ID"),
         }
 
-    
+
 class ResultForm(forms.ModelForm):
 
     class Meta():
         model = Result
-        fields = ("race", "driver", "constructor", "grid", "position_order", "points", "laps", "rank")
+        fields = ("race", "driver", "constructor", "grid",
+                  "position_order", "points", "laps", "rank")
         labels = {
             "race": _("Race ID"),
             "driver": _("Driver ID"),

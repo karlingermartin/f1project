@@ -1,7 +1,9 @@
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from f1app.models import Driver
-import os, csv
+import os
+import csv
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -14,6 +16,4 @@ class Command(BaseCommand):
                     "surname": row["surname"],
                     "driver_nationality": row["nationality"]
                 }
-                Driver.objects.create(**driver)#driver_id = row[0], forename=row[1], surname=row[2], driver_nationality=row[3])
-
-
+                Driver.objects.create(**driver)

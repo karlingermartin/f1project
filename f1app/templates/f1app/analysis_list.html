@@ -4,10 +4,10 @@
 {% block body_block %}
 <div class="analysis">
     <h2>Top 10 drivers by GP wins</h2>
-    <img src='data:image/png;base64,{{ chart }}' alt="Top 10 GP Winners"> 
-    <h2>Best Points per Race Ratio drivers</h2>
-    <img src="{% static 'pics/points_per_race.png' %}" alt="Best Points per Race Ratio"  width="1000" height="700">
-    <h2>Average speed amongst the teams during the fastest lap at individual GPs</h2>
-    <img src="{% static 'pics/avgspeed.png' %}" alt="Average Speed on different GPs"  width="1400" height="1800">
+    <img src='data:image/png;base64,{{ chart }}' alt="Top 10 GP Winners">
+    <h2>Best Points per Race Ratio of Drivers</h2>
+    <img src="{% static 'pics/points_per_race.png' %}" alt="Best Points per Race Ratio" width="1000" height="700">
+    <h2>Best Win per Race Start Ratio of Drivers</h2>
+    <img src="{% static 'pics/win_ratio.png' %}" alt="Average Speed on different GPs" width="1000" height="700">
 </div>
 {% endblock %}

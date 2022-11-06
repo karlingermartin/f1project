@@ -3,9 +3,9 @@
 {% block body_block %}
 <div class="centerstage">
     {% for constructor in constructor_list %}
-        <div class="constructor data">
-            <p><a href="{% url 'constructor_detail' pk=constructor.pk %}">{{ constructor.constructor_name }}</a></p>
-        </div>
+    <div class="constructor data">
+        <p><a href="{% url 'constructor_detail' pk=constructor.pk %}">{{ constructor.constructor_name }}</a></p>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}
