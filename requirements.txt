@@ -1,15 +1,36 @@
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
-asgiref # file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_cchykh5sgr/croots/recipe/asgiref_1661287542702/work
+asgiref==3.5.2
+autopep8==2.0.0
 bcrypt==4.0.0
-certifi # file:///C:/Windows/TEMP/abs_e9b7158a-aa56-4a5b-87b6-c00d295b01fanefpc8_o/croots/recipe/certifi_1655968940823/work/certifi
+certifi==2022.9.24
 cffi==1.15.1
-Django # file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_eeor5o9jj8/croots/recipe/django_1661292534510/work
+contourpy==1.0.5
+cycler==0.11.0
+Django==4.1.1
+django-computed-property==0.3.0
+django-computedfields==0.2.1
+django-fast-update==0.2.1
+django-matplotlib==0.1
 Faker==14.1.1
+fonttools==4.37.4
+kiwisolver==1.4.4
+matplotlib==3.6.0
+numpy==1.23.3
+packaging==21.3
+pandas==1.5.1
 Pillow==9.2.0
+plotly==5.11.0
+pycodestyle==2.9.1
 pycparser==2.21
+pyparsing==3.0.9
 python-dateutil==2.8.2
+pytz==2022.5
+seaborn==0.12.1
 six==1.16.0
-sqlparse # file:///tmp/build/80754af9/sqlparse_1602184451250/work
-tzdata # file:///tmp/build/80754af9/python-tzdata_1611693927741/work
+sqlparse==0.4.3
+tenacity==8.1.0
+tomli==2.0.1
+typing_extensions==4.3.0
+tzdata==2022.4
 wincertstore==0.2
